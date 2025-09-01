@@ -1,0 +1,3 @@
+https://docs.oracle.com/javase/tutorial/uiswing/components/frame.html
+https://www.codejava.net/java-se/swing/java-swing-hello-world-tutorial-for-beginners-using-text-editor
+https://www.codejava.net/java-se/swing/jframe-basic-tutorial-and-examples
