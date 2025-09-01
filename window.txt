@@ -1,0 +1,68 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package javaapplication1;
+
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.FlowLayout;
+import javax.swing.JOptionPane;
+/**
+ *
+ * @author DavidOkeyahJerome
+ */
+public class JavaApplication1 extends JFrame {
+
+    private JButton clickButton;
+    private JTextField weightField;
+    private JLabel weightLabel, questionLabel;
+    private JOptionPane messagePane;
+    
+    public JavaApplication1(){
+        super("Water Calculator");
+        
+        setLayout(new FlowLayout());
+        
+        clickButton = new JButton("Tell me");
+        questionLabel = new JLabel("How much water should I drink?");
+        weightLabel = new JLabel("My weight (in kg)");
+        weightField = new JTextField(10);
+        add(questionLabel);
+        add(weightLabel);
+        add(weightField);
+        add(clickButton);   
+        clickButton.addActionListener(new ButtonHandler());
+        
+    } //End of constructor
+    
+    private class ButtonHandler implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent event) {
+            int userNumber;
+            double water;
+            //JOptionPane.showMessageDialog(null, messagePane, title, HEIGHT);
+            try {
+                userNumber = Integer.parseInt(weightField.getText());
+                water = (userNumber / 10) * 0.4;
+                JOptionPane.showMessageDialog(null, String.format("Buddy, you should drink %.1f L of water a day!", water));
+            }
+            catch (NumberFormatException numberFormatException){
+                System.out.println("Incorrect value, only input numbers!!!");
+            }
+        }
+        
+    }
+    
+    public static void main(String[] args) {
+        JavaApplication1 myApp = new JavaApplication1();
+        myApp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        myApp.setSize(200, 400);
+        myApp.setVisible(true);
+    }
+    
+}
